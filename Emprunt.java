@@ -56,29 +56,27 @@ public final class Emprunt {
 		_dateEmprunt = dateEmprunt;
 	}
 	
-	public void setDateRestitution(Date dateRestitution) {
-		_dateRestitution = dateRestitution;
+	public void setLivre(Livre livre) {
+		_livre = livre;
+	}
+	
+	public void setAdherent(Adherent adherent) {
+		_adherent = adherent;
 	}
 	
 	public void emprunter() {
-		_livre._nombreCopie --;
+		_livre.setEtat(false);
 		
 	}
 	
 	public void restituer() {
-		_livre._nombreCopie++;
+		_livre.setEtat(true);
 	}
 	
-	public void prolonger(Date dateProlongation) {
-		_dateRestitution = dateProlongation;
+	public void prolonger(Date dateRestitution) {
+		if(dateRestitution.after(_dateRestitution))
+		_dateRestitution = dateRestitution;
 	}
-	
-	
-	/*public void prolonger(int nbrJour) {
-		calendar.setTime(_dateRestitution); 
-		calendar.add(Calendar.DATE, nbrJour);
-		_dateRestitution = calendar.getTime();
-	}*/
 	
 	public void afficher() {
 		System.out.println("Date d'emprunt : " + _dateEmprunt);

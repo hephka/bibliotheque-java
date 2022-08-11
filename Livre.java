@@ -14,6 +14,14 @@ public final class Livre extends Volume {
 		super(num, titre, dateAcquisition, nombreCopie, bibliotheque, auteur);
 	}
 	
+	public boolean getEtat() {
+		return _etat;
+	}
+	
+	public void setEtat(boolean etat) {
+		_etat = etat;
+	}
+	
 	public void ajoutEmprunt(Emprunt emprunt) {
 		_emprunts.add(emprunt);
 		_nombreCopie--;
